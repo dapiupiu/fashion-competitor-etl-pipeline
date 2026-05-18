@@ -9,3 +9,7 @@ venv/
 .venv/
 __pycache__/
 *.pyc
+
+# Mengabaikan file hasil coverage dan cache pytest
+.coverage
+.pytest_cache/
