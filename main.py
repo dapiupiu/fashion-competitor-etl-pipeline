@@ -9,8 +9,8 @@ BASE_URL = "https://fashion-studio.dicoding.dev"
 # Spreadsheet ID Google Sheets
 SPREADSHEET_ID = "17dn82H4jhKFNG24ea2wfeUIdAhDYra0Jz66yeY1dsBk"
 
-# URL Database PostgreSQL milikmu
-DB_URL = "postgresql://kakadavidharmawan:kakadavidharmawan@localhost:5432/postgres"
+# URL Database PostgreSQL
+DB_URL = "postgresql://kakadavidharmawan:kakadavidharmawan@localhost:5432/fashion_retail_competitor"
 
 def run_pipeline():
     print("=========================================")
@@ -44,7 +44,7 @@ def run_pipeline():
     load_main(df_cleaned, spreadsheet_id=SPREADSHEET_ID, db_url=DB_URL)
     
     print("\n=========================================")
-    print("ETL PIPELINE EXECUTED SUCCESSFULLY! 🎉")
+    print("ETL PIPELINE EXECUTED SUCCESSFULLY!")
     print("=========================================")
 
 if __name__ == "__main__":
