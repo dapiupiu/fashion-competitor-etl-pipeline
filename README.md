@@ -192,19 +192,23 @@ coverage report
 
 # 📈 Hasil Pengujian (Test Coverage Metrics)
 
-Berkat penerapan teknik **Mock Testing** menggunakan `unittest.mock.patch` untuk mengisolasi ketergantungan eksternal (API jaringan dan Database), proyek ini berhasil menembus persentase cakupan kode sebesar **86%** (*Memenuhi kriteria tingkat lanjut / Advanced*).
+Berkat penerapan teknik **Mock Testing** menggunakan `unittest.mock.patch` untuk mengisolasi ketergantungan eksternal (API jaringan dan Database), proyek ini berhasil mencapai persentase cakupan kode sebesar **82%**.
 
 ```plaintext
+=================================================== 13 passed in 2.65s ===================================================
+
+(.venv) PS C:\PEMDA_KakaDaviDharmawan> python -m coverage report
+
 Name                      Stmts   Miss  Cover
 ---------------------------------------------
 tests\test_extract.py        32      1    97%
 tests\test_load.py           49      1    98%
 tests\test_transform.py      23      1    96%
-utils\extract.py             63     12    81%
-utils\load.py                57     11    81%
-utils\transform.py           77     15    81%
+utils\extract.py             69     17    75%
+utils\load.py                72     23    68%
+utils\transform.py           29      7    76%
 ---------------------------------------------
-TOTAL                       301     41    86%
+TOTAL                       274     50    82%
 ```
 
 ---
