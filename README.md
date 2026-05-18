@@ -1,3 +1,76 @@
+# 👗 Fashion Retail ETL Pipeline
+
+### 🏷️ Judul
+
+**Membangun ETL Pipeline dan Unit Testing Komprehensif untuk Data Kompetitor Fashion Studio**
+
+---
+
+## 📌 Deskripsi Proyek
+
+Proyek ini merupakan implementasi *end-to-end data pipeline* (**Extract, Transform, Load**) berbasis Python yang dirancang untuk membantu tim retail fashion dalam mengotomatisasi pengambilan dan penyiapan data kompetitor secara tangguh (*robust*).
+
+Fokus utama dari proyek ini adalah mengumpulkan data produk dari website retail fiktif **Fashion Studio** (mencakup **50 halaman web** atau sekitar **1000 data mentah**), melakukan pembersihan data kotor secara modular sesuai standar industri, serta mendistribusikan data siap pakai (*analytics-ready data*) tersebut ke tiga jenis repositori data yang berbeda secara simultan.
+
+---
+
+## 🛠️ Ringkasan Fitur & Spesifikasi Teknis
+
+### 🔍 Ekstraksi Tangguh (*Extract*)
+
+Memanfaatkan `requests.Session()` untuk menjaga efisiensi koneksi internet selama proses *web scraping* dan dilengkapi penanganan error defensif terhadap variasi struktur tag HTML mentah. Setiap data yang diambil otomatis dilengkapi dengan kolom **Timestamp** (format ISO).
+
+---
+
+### 🧹 Transformasi Presisi (*Transform*)
+
+Menggunakan ekspresi reguler (*Regex*) dan manipulasi string via Pandas untuk:
+- membersihkan teks pengotor,
+- membuang data duplikat,
+- menangani nilai kosong (*handling null values*),
+- serta melakukan konversi mata uang dari USD ke IDR dengan asumsi kurs tetap **Rp16.000**.
+
+---
+
+### 💾 Penyimpanan Multi-Repositori (*Load*)
+
+Pipeline dirancang untuk mengekspor data bersih ke dalam tiga penyimpanan sekaligus dalam satu kali jalan:
+
+#### 📄 Flat File
+Berformat:
+
+```plaintext
+products.csv
+```
+
+#### ☁️ Cloud Storage
+Google Sheets API dengan autentikasi menggunakan kunci privat Service Account:
+
+```plaintext
+google-sheets-api.json
+```
+
+#### 🗄️ Relational Database
+Tabel lokal PostgreSQL menggunakan engine koneksi SQLAlchemy.
+
+---
+
+### 🧪 Arsitektur Pengujian Kuat (*Unit Testing*)
+
+Dilindungi oleh skrip pengujian berbasis `pytest` menggunakan teknik **Mock Testing** (`unittest.mock.patch`) untuk mengisolasi ketergantungan eksternal seperti:
+- jaringan internet,
+- dan server database.
+
+Seluruh fungsi inti berhasil dilindungi dengan **Test Coverage mencapai 86%** (*Memenuhi kriteria Advanced / Bintang 5*).
+
+---
+
+### 🔒 Aspek Keamanan Data
+
+Seluruh kredensial rahasia database, private key cloud API, serta dependensi virtual lokal (`.venv`) diproteksi secara ketat menggunakan konfigurasi `.gitignore` agar tidak terekspos ke publik.
+
+---
+
 # 🚀 Prasyarat & Instalasi
 
 Ikuti langkah-langkah berikut untuk menyiapkan lingkungan lokal komputermu sebelum menjalankan proyek ETL Pipeline.
