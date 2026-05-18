@@ -100,7 +100,7 @@ def load_to_google_sheets(
 def load_to_postgresql(
     df,
     db_url="postgresql://kakadavidharmawan:kakadavidharmawan@localhost:5432/fashion_retail_competitor",
-    table_name="products",
+    table_name="product",
 ):
     """
     Menyimpan data ke Relational Database PostgreSQL menggunakan SQLAlchemy.

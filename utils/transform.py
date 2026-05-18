@@ -26,30 +26,30 @@ def transform_main(df_raw):
     try:
         df = df_raw.copy()
 
-        # 1. Eliminasi data kotor (Title & Price exact match)
+        # Eliminasi data kotor (Title & Price exact match)
         df = df[df['Title'] != 'Unknown Product']
         df = df[df['Price'] != 'Price Unavailable']
         
         # Eliminasi data kotor pada kolom Rating
         df = df[~df['Rating'].str.contains('Invalid Rating', case=False, na=False)]
 
-        # Kita hanya membuang baris jika Title atau Price-nya yang hilang secara mutlak
+        # Membuang baris jika Title atau Price-nya yang hilang secara mutlak
         df = df.dropna(subset=['Title', 'Price'])
 
-        # 2. Transformasi kolom Price ($102.15 -> Angka Float * 16000 Rupiah)
+        # Transformasi kolom Price ($102.15 -> Angka Float * 16000 Rupiah)
         df['Price'] = df['Price'].str.extract(r'(\d+\.\d+|\d+)').astype(float) * 16000
 
-        # 3. Transformasi kolom Rating (Rating: ⭐ 3.9 / 5 -> 3.9)
-        # Produk berstatus "Not Rated" hasil extract-nya NaN, otomatis diisi 0.0 (Data tetap aman terjaga)
+        # Transformasi kolom Rating (Rating: ⭐ 3.9 / 5 -> 3.9)
+        # Produk berstatus "Not Rated" hasil extract-nya NaN, otomatis diisi 0.0
         df['Rating'] = df['Rating'].str.extract(r'(\d+\.\d+|\d+)').astype(float).fillna(0.0)
 
-        # 4. Transformasi kolom Colors (3 Colors -> 3)
+        # Transformasi kolom Colors (3 Colors -> 3)
         df['Colors'] = df['Colors'].str.extract(r'(\d+)').fillna(0).astype(int)
 
-        # 5. Transformasi kolom Size (Size: M -> M)
+        # Transformasi kolom Size (Size: M -> M)
         df['Size'] = df['Size'].str.replace('Size: ', '', regex=False).str.strip()
 
-        # 6. Transformasi kolom Gender (Gender: Women -> Women)
+        # Transformasi kolom Gender (Gender: Women -> Women)
         df['Gender'] = df['Gender'].str.replace('Gender: ', '', regex=False).str.strip()
         
         print(f"[+] Transform Stage Success: Filtered down to {len(df)} clean data rows.")

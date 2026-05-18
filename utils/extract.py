@@ -37,7 +37,7 @@ def scrape_main(base_url, start_page=1, end_page=50, save_raw_csv=False):
         clean_base = base_url.rstrip("/")
 
         for page in range(start_page, end_page + 1):
-            # FIX PATTERN URL: Mengikuti format asli website target (/page2, /page3, dst.)
+            # Mengikuti format asli website target (/page2, /page3, dst.) | fix pattern url
             if page == 1:
                 url = f"{clean_base}/"
             else:
@@ -59,15 +59,15 @@ def scrape_main(base_url, start_page=1, end_page=50, save_raw_csv=False):
                 continue
 
             for card in cards:
-                # 1. Ambil Title secara Universal berdasarkan nama Class langsung
+                # Ambil Title secara Universal berdasarkan nama Class langsung
                 title_tag = card.find(class_="product-title")
                 title = title_tag.get_text(strip=True) if title_tag else None
 
-                # 2. Ambil Price secara Universal berdasarkan nama Class langsung
+                # Ambil Price secara Universal berdasarkan nama Class langsung
                 price_tag = card.find(class_="price")
                 price = price_tag.get_text(strip=True) if price_tag else None
 
-                # 3. Mencari informasi tambahan di dalam tag p biasa
+                # Mencari informasi tambahan di dalam tag p biasa
                 rating, colors, size, gender = None, None, None, None
                 p_tags = card.find_all("p")
 
@@ -97,7 +97,7 @@ def scrape_main(base_url, start_page=1, end_page=50, save_raw_csv=False):
                 )
 
             print(f"[+] Successfully scraped page {page}")
-            time.sleep(1)  # Jeda aman 1 detik anti-rate limit
+            time.sleep(1)  # Jeda 1 detik anti-rate limit
 
         df_raw = pd.DataFrame(products)
 
