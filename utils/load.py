@@ -82,7 +82,6 @@ def load_to_postgresql(df, db_url="postgresql://kakadavidharmawan:kakadavidharma
 def load_main(df, spreadsheet_id=None, db_url=None):
     """
     Fungsi utama tahapan Load untuk mengeksekusi penyimpanan ke 3 repositori sekaligus.
-    Menjamin pemenuhan Kriteria 2 tingkat Advanced (4 Points).
     """
     try:
         if df.empty:
@@ -91,14 +90,14 @@ def load_main(df, spreadsheet_id=None, db_url=None):
             
         print("\n--- Starting Load Process ---")
         
-        # 1. Eksekusi CSV (Wajib)
+        # Eksekusi CSV
         load_to_csv(df, "products.csv")
         
-        # 2. Eksekusi Google Sheets (Opsional jika ID belum diset, namun disiapkan untuk main.py)
+        # Eksekusi Google Sheets
         if spreadsheet_id:
             load_to_google_sheets(df, spreadsheet_id=spreadsheet_id)
             
-        # 3. Eksekusi PostgreSQL (Opsional jika URL belum diset, namun disiapkan untuk main.py)
+        # Eksekusi PostgreSQL
         if db_url:
             load_to_postgresql(df, db_url=db_url)
             
