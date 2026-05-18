@@ -10,7 +10,7 @@
 
 Proyek ini merupakan implementasi *end-to-end data pipeline* (**Extract, Transform, Load**) berbasis Python yang dirancang untuk membantu tim retail fashion dalam mengotomatisasi pengambilan dan penyiapan data kompetitor secara tangguh (*robust*).
 
-Fokus utama dari proyek ini adalah mengumpulkan data produk dari website retail fiktif **Fashion Studio** (mencakup **50 halaman web** atau sekitar **1000 data mentah**), melakukan pembersihan data kotor secara modular sesuai standar industri, serta mendistribusikan data siap pakai (*analytics-ready data*) tersebut ke tiga jenis repositori data yang berbeda secara simultan.
+Fokus utama dari proyek ini adalah mengumpulkan data produk dari website retail fiktif **Fashion Studio** (https://fashion-studio.dicoding.dev/) yang mencakup **50 halaman web** atau sekitar **1000 data mentah**, melakukan pembersihan data kotor secara modular sesuai standar industri, serta mendistribusikan data siap pakai (*analytics-ready data*) tersebut ke tiga jenis repositori data yang berbeda secara simultan.
 
 ---
 
