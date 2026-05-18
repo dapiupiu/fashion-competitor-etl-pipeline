@@ -113,13 +113,13 @@ def transform_main(df_raw):
         df_cleaned = clean_colors_column(df_cleaned)
         df_cleaned = clean_categorical_columns(df_cleaned)
         
-        # 1. Hapus baris yang mengandung nilai Null/NaN di kolom mana pun akibat data invalid
+        # Hapus baris yang mengandung nilai Null/NaN di kolom mana pun akibat data invalid
         df_cleaned = df_cleaned.dropna()
         
-        # 2. Hapus data yang terduplikasi (Kriteria Basic - 2 Pts)
+        # Hapus data yang terduplikasi
         df_cleaned = df_cleaned.drop_duplicates()
         
-        # 3. Memastikan tipe data akhir mutlak sesuai dengan skema penafsiran Dicoding
+        # Memastikan tipe data akhir sesuai ekspektasi untuk setiap kolom
         df_cleaned["Price"] = df_cleaned["Price"].astype("float64")
         df_cleaned["Rating"] = df_cleaned["Rating"].astype("float64")
         df_cleaned["Colors"] = df_cleaned["Colors"].astype("int64")
