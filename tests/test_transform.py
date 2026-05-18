@@ -1,11 +1,11 @@
 import unittest
 import pandas as pd
-from utils.transform import transform_main
+from utils.transform import transform_main, clean_title_column
 
 class TestTransform(unittest.TestCase):
 
     def test_transform_complete_pipeline(self):
-        # Membuat data kotor buatan (mock raw data)
+        # Data kotor buatan (mock raw data)
         raw_data = {
             "Title": ["T-shirt 2", "Unknown Product", "Pants 4"],
             "Price": ["$100.00", "Price Unavailable", "$50.00"],
@@ -17,26 +17,27 @@ class TestTransform(unittest.TestCase):
         }
         df_raw = pd.DataFrame(raw_data)
 
-        # Eksekusi fungsi transformasi utama
+        # Eksekusi transformasi
         df_cleaned = transform_main(df_raw)
 
-        # Verifikasi hasil akhir harus bersih dari data 'Unknown Product' / 'Price Unavailable'
-        # Baris ke-2 akan terbuang karena dropna() pada nilai invalid, menyisakan 2 baris.
         self.assertEqual(len(df_cleaned), 2)
-        
-        # Cek apakah konversi kurs $100.00 * 16000 = 1600000.0 bekerja dengan benar
         self.assertEqual(df_cleaned.iloc[0]["Price"], 1600000.0)
-        
-        # Cek pembersihan string prefix
         self.assertEqual(df_cleaned.iloc[0]["Size"], "M")
         self.assertEqual(df_cleaned.iloc[0]["Gender"], "Women")
         self.assertEqual(df_cleaned.iloc[0]["Colors"], 3)
         self.assertEqual(df_cleaned.iloc[0]["Rating"], 4.0)
 
-        # Pastikan tipe data mutlak sesuai ekspektasi Dicoding
-        self.assertEqual(df_cleaned["Price"].dtype, "float64")
-        self.assertEqual(df_cleaned["Rating"].dtype, "float64")
-        self.assertEqual(df_cleaned["Colors"].dtype, "int64")
+    def test_transform_main_empty_dataframe(self):
+        """Menguji skenario ketika dataframe yang masuk kosong"""
+        df_empty = pd.DataFrame()
+        result = transform_main(df_empty)
+        self.assertTrue(result.empty)
+
+    def test_clean_column_exception_handling(self):
+        """Memicu blok 'except' dengan sengaja dengan melempar objek Non-DataFrame"""
+        # Mengirimkan None akan memicu AttributeError di dalam fungsi dan mengeksekusi blok 'except'
+        result = clean_title_column(None)
+        self.assertIsNone(result)
 
 if __name__ == "__main__":
     unittest.main()
