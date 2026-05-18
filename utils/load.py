@@ -61,7 +61,7 @@ def load_to_google_sheets(df, credentials_path="google-sheets-api.json", spreads
         print(f"Error uploading to Google Sheets: {e}")
         return False
 
-def load_to_postgresql(df, db_url="postgresql://kakadavidharmawan:kakadavidharmawan@localhost:5432/dbname", table_name="products"):
+def load_to_postgresql(df, db_url="postgresql://kakadavidharmawan:kakadavidharmawan@localhost:5432/fashion_retail_competitor", table_name="products"):
     """
     Menyimpan data ke Relational Database PostgreSQL menggunakan SQLAlchemy.
     """
