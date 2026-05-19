@@ -25,10 +25,10 @@ Memanfaatkan `requests.Session()` untuk menjaga efisiensi koneksi internet selam
 ### 🧹 Transformasi Presisi (*Transform*)
 
 Menggunakan ekspresi reguler (*Regex*) dan manipulasi string via Pandas untuk:
-- membersihkan teks pengotor,
-- membuang data duplikat,
-- menangani nilai kosong (*handling null values*),
-- serta melakukan konversi mata uang dari USD ke IDR dengan asumsi kurs tetap **Rp16.000**.
+- Membersihkan teks pengotor,
+- Membuang data duplikat,
+- Menangani nilai kosong (*handling null values*),
+- Serta melakukan konversi mata uang dari USD ke IDR dengan asumsi kurs tetap **Rp16.000**.
 
 ---
 
@@ -40,7 +40,7 @@ Pipeline dirancang untuk mengekspor data bersih ke dalam tiga penyimpanan sekali
 Berformat:
 
 ```plaintext
-products.csv
+product.csv
 ```
 
 #### ☁️ Cloud Storage
@@ -73,7 +73,7 @@ Seluruh kredensial rahasia database, private key cloud API, serta dependensi vir
 
 # 🚀 Prasyarat & Instalasi
 
-Ikuti langkah-langkah berikut untuk menyiapkan lingkungan lokal komputermu sebelum menjalankan proyek ETL Pipeline.
+Ikuti langkah-langkah berikut untuk menyiapkan lingkungan lokal komputer sebelum menjalankan proyek ETL Pipeline.
 
 ---
 
