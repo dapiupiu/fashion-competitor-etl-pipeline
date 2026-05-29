@@ -1,4 +1,4 @@
-## 🏷️ **Membangun ETL Pipeline dan Unit Testing Komprehensif untuk Data Kompetitor Fashion Studio | 👗 Fashion Retail ETL Pipeline**
+## 🏷️ **👗 Fashion Retail ETL Pipeline | Membangun ETL Pipeline dan Unit Testing untuk Data Kompetitor Fashion Studio **
 
 ---
 
