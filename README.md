@@ -1,8 +1,8 @@
-## 🏷️ **Fashion Retail ETL Pipeline | Membangun ETL Pipeline dan Unit Testing untuk Data Kompetitor Fashion Studio**
+## **Fashion Retail ETL Pipeline | Membangun ETL Pipeline dan Unit Testing untuk Data Kompetitor Fashion Studio**
 
 ---
 
-## 📌 Deskripsi Proyek
+## Deskripsi Proyek
 
 Proyek ini merupakan implementasi *end-to-end data pipeline* (**Extract, Transform, Load**) berbasis Python yang dirancang untuk membantu tim retail fashion dalam mengotomatisasi pengambilan dan penyiapan data kompetitor secara tangguh (*robust*).
 
@@ -10,15 +10,15 @@ Fokus utama dari proyek ini adalah mengumpulkan data produk dari website retail 
 
 ---
 
-## 🛠️ Ringkasan Fitur & Spesifikasi Teknis
+## Ringkasan Fitur & Spesifikasi Teknis
 
-### 🔍 Ekstraksi Tangguh (*Extract*)
+### Ekstraksi Tangguh (*Extract*)
 
 Memanfaatkan `requests.Session()` untuk menjaga efisiensi koneksi internet selama proses *web scraping* dan dilengkapi penanganan error defensif terhadap variasi struktur tag HTML mentah. Setiap data yang diambil otomatis dilengkapi dengan kolom **Timestamp** (format ISO).
 
 ---
 
-### 🧹 Transformasi Presisi (*Transform*)
+### Transformasi Presisi (*Transform*)
 
 Menggunakan ekspresi reguler (*Regex*) dan manipulasi string via Pandas untuk:
 - Membersihkan teks pengotor,
@@ -28,30 +28,30 @@ Menggunakan ekspresi reguler (*Regex*) dan manipulasi string via Pandas untuk:
 
 ---
 
-### 💾 Penyimpanan Multi-Repositori (*Load*)
+### Penyimpanan Multi-Repositori (*Load*)
 
 Pipeline dirancang untuk mengekspor data bersih ke dalam tiga penyimpanan sekaligus dalam satu kali jalan:
 
-#### 📄 Flat File
+#### Flat File
 Berformat:
 
 ```plaintext
 product.csv
 ```
 
-#### ☁️ Cloud Storage
+#### Cloud Storage
 Google Sheets API dengan autentikasi menggunakan kunci privat Service Account:
 
 ```plaintext
 google-sheets-api.json
 ```
 
-#### 🗄️ Relational Database
+#### Relational Database
 Tabel lokal PostgreSQL menggunakan engine koneksi SQLAlchemy.
 
 ---
 
-### 🧪 Arsitektur Pengujian Kuat (*Unit Testing*)
+### Arsitektur Pengujian Kuat (*Unit Testing*)
 
 Dilindungi oleh skrip pengujian berbasis `pytest` menggunakan teknik **Mock Testing** (`unittest.mock.patch`) untuk mengisolasi ketergantungan eksternal seperti:
 - jaringan internet,
@@ -61,21 +61,21 @@ Seluruh fungsi inti berhasil dilindungi dengan **Test Coverage mencapai 86%** (*
 
 ---
 
-### 🔒 Aspek Keamanan Data
+### Aspek Keamanan Data
 
 Seluruh kredensial rahasia database, private key cloud API, serta dependensi virtual lokal (`.venv`) diproteksi secara ketat menggunakan konfigurasi `.gitignore` agar tidak terekspos ke publik.
 
 ---
 
-# 🚀 Prasyarat & Instalasi
+# Prasyarat & Instalasi
 
 Ikuti langkah-langkah berikut untuk menyiapkan lingkungan lokal komputer sebelum menjalankan proyek ETL Pipeline.
 
 ---
 
-# 🛠️ Setup Environment
+# Setup Environment
 
-## 1️⃣ Persiapan Lingkungan (Virtual Environment)
+## Persiapan Lingkungan (Virtual Environment)
 
 Direkomendasikan menggunakan Python versi **3.10+** dan membuat virtual environment agar dependensi tidak bentrok.
 
@@ -100,7 +100,7 @@ source .venv/bin/activate
 
 ---
 
-## 2️⃣ Instalasi Dependencies
+## Instalasi Dependencies
 
 Instal seluruh pustaka yang dibutuhkan sesuai versi spesifik yang diminta:
 
@@ -110,7 +110,7 @@ pip install -r requirements.txt
 
 ---
 
-# 🗄️ Setup Database PostgreSQL
+# Setup Database PostgreSQL
 
 Masuk ke terminal PostgreSQL (`psql`) lokal komputermu.
 
@@ -128,7 +128,7 @@ Pastikan konfigurasi berikut pada variabel `DB_URL` di berkas `main.py` sudah di
 
 ---
 
-# 📄 Setup Google Sheets API Kredensial
+# Setup Google Sheets API Kredensial
 
 Ikuti langkah-langkah berikut:
 
@@ -150,9 +150,9 @@ google-sheets-api.json
 
 ---
 
-# 💻 Cara Menjalankan
+# Cara Menjalankan
 
-## ▶️ Menjalankan Pipeline Utama (ETL)
+## Menjalankan Pipeline Utama (ETL)
 
 Untuk mengekstrak data dari website, memprosesnya, dan menyimpannya langsung ke CSV, Google Sheets, dan PostgreSQL secara bersamaan, jalankan perintah berikut:
 
@@ -162,7 +162,7 @@ python main.py
 
 ---
 
-## 🧪 Menjalankan Unit Testing
+## Menjalankan Unit Testing
 
 Untuk memastikan seluruh fungsi berjalan dengan benar secara lokal menggunakan mekanisme objek tiruan (*Mocking*), jalankan perintah berikut:
 
@@ -172,7 +172,7 @@ python -m pytest tests
 
 ---
 
-## 📊 Memeriksa Laporan Test Coverage
+## Memeriksa Laporan Test Coverage
 
 Untuk melihat persentase seberapa luas baris kode pipeline yang telah berhasil dilindungi oleh skrip pengujian, jalankan perintah berikut:
 
@@ -186,7 +186,7 @@ coverage report
 
 ---
 
-# 📈 Hasil Pengujian (Test Coverage Metrics)
+# Hasil Pengujian (Test Coverage Metrics)
 
 Berkat penerapan teknik **Mock Testing** menggunakan `unittest.mock.patch` untuk mengisolasi ketergantungan eksternal (API jaringan dan Database), proyek ini berhasil mencapai persentase cakupan kode sebesar **82%**.
 
@@ -209,7 +209,7 @@ TOTAL                       274     50    82%
 
 ---
 
-# 🔒 Keamanan Data (Security Best Practices)
+# Keamanan Data (Security Best Practices)
 
 Berkas kredensial rahasia berikut:
 
