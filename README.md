@@ -57,7 +57,7 @@ Dilindungi oleh skrip pengujian berbasis `pytest` menggunakan teknik **Mock Test
 - jaringan internet,
 - dan server database.
 
-Seluruh fungsi inti berhasil dilindungi dengan **Test Coverage mencapai 86%** (*Memenuhi kriteria Advanced / Bintang 5*).
+Seluruh fungsi inti berhasil dilindungi dengan **Test Coverage mencapai 82%**.
 
 ---
 
