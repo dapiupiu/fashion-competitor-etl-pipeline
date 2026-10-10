@@ -193,7 +193,7 @@ Berkat penerapan teknik **Mock Testing** menggunakan `unittest.mock.patch` untuk
 ```plaintext
 =================================================== 13 passed in 2.65s ===================================================
 
-(.venv) PS C:\PEMDA_KakaDaviDharmawan> python -m coverage report
+(.venv) PS C:\fashion-competitor-etl-pipeline> python -m coverage report
 
 Name                      Stmts   Miss  Cover
 ---------------------------------------------
@@ -214,7 +214,7 @@ TOTAL                       274     50    82%
 Berkas kredensial rahasia berikut:
 
 - `google-sheets-api.json`
-- file data output `products.csv`
+- file data output `product.csv`
 - direktori `.venv/`
 
 telah didaftarkan ke dalam berkas `.gitignore`.
